@@ -1,0 +1,15 @@
+@import "./themeSettingsMenu.less";
+
+.pf2e-subsystem-clickable-icon {
+    cursor: pointer;
+  
+    &:hover,
+    &.selected {
+      filter: drop-shadow(0 0 3px @mainHover);
+    }
+  
+    &.alternate:hover,
+    &.alternate.selected {
+      filter: drop-shadow(0 0 3px @secondaryHover);
+    }
+  }

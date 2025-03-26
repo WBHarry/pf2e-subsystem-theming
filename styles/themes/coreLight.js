@@ -1,0 +1,27 @@
+const coreLight = {
+  "--pf2e-subsystem-theming-application-image": "../../../ui/parchment.jpg",
+  "--pf2e-subsystem-theming-application-header": "#444444",
+  "--pf2e-subsystem-theming-application-header-image": "ignore",
+  "--pf2e-subsystem-theming-application-header-image-size": "cover",
+  "--pf2e-subsystem-theming-application-header-image-repeat": "initial",
+  "--pf2e-subsystem-theming-application-header-image-position": "left",
+  "--pf2e-subsystem-theming-application-image-repeat": "repeat",
+  "--pf2e-subsystem-theming-application-image-position": "left",
+  "--pf2e-subsystem-theming-application": "initial",
+  "--pf2e-subsystem-theming-primary": "#d4bdac",
+  "--pf2e-subsystem-theming-primary-faded": "#d4bdac40",
+  "--pf2e-subsystem-theming-secondary": "#62b356",
+  "--pf2e-subsystem-theming-tertiary": "#62acce",
+  "--pf2e-subsystem-theming-primary-accent": "#fff1db",
+  "--pf2e-subsystem-theming-tertiary-accent": "#9de0ff",
+  "--pf2e-subsystem-theming-primary-color": "#000000",
+  "--pf2e-subsystem-theming-text-shadow": "none",
+  "--pf2e-subsystem-theming-main-hover": "#1c8efe",
+  "--pf2e-subsystem-theming-border": "#000000",
+  "--pf2e-subsystem-theming-secondary-border": "#82acff",
+  "--pf2e-subsystem-theming-application-border": "initial",
+  "--pf2e-subsystem-theming-icon": "#000000",
+  "--pf2e-subsystem-theming-secondary-icon": "#000000",
+};
+
+export default coreLight;

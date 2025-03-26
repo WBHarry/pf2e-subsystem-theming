@@ -1,0 +1,31 @@
+const viscera = {
+  "--pf2e-subsystem-theming-application-image":
+    "../../../modules/pf2e-subsystem-theming/assets/Viscera.webp",
+  "--pf2e-subsystem-theming-application-header": "transparent",
+  "--pf2e-subsystem-theming-application-header-image": "ignore",
+  "--pf2e-subsystem-theming-application-header-image-size": "cover",
+  "--pf2e-subsystem-theming-application-header-image-repeat": "initial",
+  "--pf2e-subsystem-theming-application-header-image-position": "left",
+  "--pf2e-subsystem-theming-application-image-size": "cover",
+  "--pf2e-subsystem-theming-application-image-repeat": "initial",
+  "--pf2e-subsystem-theming-application-image-position": "left",
+  "--pf2e-subsystem-theming-application-secondary-image": "",
+  "--pf2e-subsystem-theming-application": "",
+  "--pf2e-subsystem-theming-primary-outline": "drop-shadow(0 0 3px #808080)",
+  "--pf2e-subsystem-theming-primary": "#813f3f",
+  "--pf2e-subsystem-theming-primary-faded": "#813f3f80",
+  "--pf2e-subsystem-theming-secondary": "#483c70",
+  "--pf2e-subsystem-theming-tertiary": "#ed143d",
+  "--pf2e-subsystem-theming-primary-accent": "#9f2828",
+  "--pf2e-subsystem-theming-tertiary-accent": "#c12c2c",
+  "--pf2e-subsystem-theming-primary-color": "#FFFFFF",
+  "--pf2e-subsystem-theming-text-shadow": "#000000",
+  "--pf2e-subsystem-theming-main-hover": "#ff0000",
+  "--pf2e-subsystem-theming-border": "#ffa500",
+  "--pf2e-subsystem-theming-secondary-border": "#ffd700",
+  "--pf2e-subsystem-theming-application-border": "#ffa500",
+  "--pf2e-subsystem-theming-icon": "#FFFFFF",
+  "--pf2e-subsystem-theming-secondary-icon": "#FFFFFF",
+};
+
+export default viscera;

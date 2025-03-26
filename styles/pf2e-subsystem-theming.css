@@ -1,0 +1,265 @@
+.theme-dark:not([data-dorako-ui-scope]) .theme-settings-menu .tagify {
+  border-color: inherit;
+  background: inherit;
+}
+.theme-dark:not([data-dorako-ui-scope]) .theme-settings-menu .menu-category legend h4 {
+  color: var(--color-light-2);
+}
+.theme-dark .theme-settings-menu .tagify-header {
+  align-self: center;
+  margin-bottom: 0;
+  color: #ababab;
+}
+.theme-dark .theme-settings-menu tags {
+  border-width: 2px;
+}
+.theme-dark .theme-settings-menu .menu-category {
+  display: flex;
+  flex-direction: column;
+  border-style: double;
+  border-width: 4px;
+  border-color: #ababab;
+}
+.theme-dark .theme-settings-menu .menu-category legend {
+  font-weight: bold;
+  text-align: center;
+}
+.theme-dark .theme-settings-menu .menu-category legend h4 {
+  margin: 0;
+  text-shadow: 0 0 #ababab;
+}
+.theme-dark .theme-settings-menu .menu-category .section-header {
+  position: relative;
+  align-self: center;
+}
+.theme-dark .theme-settings-menu .menu-category .section-header div {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 4px 0 4px 0;
+}
+.theme-dark .theme-settings-menu .menu-category .section-header i {
+  position: absolute;
+  top: 8px;
+  right: -22px;
+  font-size: 14px;
+}
+.theme-dark .theme-settings-menu .menu-category .form-group {
+  text-wrap: nowrap;
+}
+.theme-dark .theme-settings-menu .menu-category .form-group.underlined {
+  border-bottom: 1px solid #ababab;
+}
+:not([data-dorako-ui-scope]) .tagify {
+  border-color: black;
+  background: #cfcfcf;
+}
+.theme-settings-menu .settings-hint {
+  font-style: italic;
+  font-variant: all-small-caps;
+  margin-top: -8px;
+  font-size: 12px;
+}
+.theme-settings-menu .form-group.inner {
+  flex: 0;
+}
+.theme-settings-menu .form-group.inner label {
+  padding: 0;
+}
+.theme-settings-menu .form-group.full {
+  gap: 8px;
+}
+.theme-settings-menu .form-group.full label {
+  flex: 0;
+}
+.theme-settings-menu .form-group.full button {
+  height: 32px;
+}
+.theme-settings-menu .menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: auto;
+}
+.theme-settings-menu .menu-container footer {
+  margin-right: 1px;
+}
+.theme-settings-menu .bestiary-customization-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.theme-settings-menu .bestiary-customization-container .no-flex {
+  flex: none;
+}
+.theme-settings-menu .bestiary-customization-container button {
+  height: 32px;
+}
+.theme-settings-menu .menu-grouper-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.theme-settings-menu .menu-grouper-container > label {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.theme-settings-menu .menu-grouper {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+.theme-settings-menu .menu-grouper.spaced {
+  gap: 4px;
+}
+.theme-settings-menu .menu-grouper .grouped-section {
+  border-right-width: 2px;
+  border-right-style: solid;
+  margin-right: 2px;
+}
+.theme-settings-menu .menu-grouper > * {
+  flex: 1;
+}
+.theme-settings-menu .menu-category {
+  display: flex;
+  flex-direction: column;
+  border-style: double;
+  border-width: 4px;
+  border-color: black;
+}
+.theme-settings-menu .menu-category legend {
+  font-weight: bold;
+  text-align: center;
+}
+.theme-settings-menu .menu-category legend.flexed {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.theme-settings-menu .menu-category legend h4 {
+  margin: 0;
+  color: black;
+  text-shadow: 0 0 black;
+}
+.theme-settings-menu .menu-category .section-header {
+  position: relative;
+  align-self: center;
+}
+.theme-settings-menu .menu-category .section-header div {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 4px 0 4px 0;
+}
+.theme-settings-menu .menu-category .section-header i {
+  position: absolute;
+  top: 8px;
+  right: -22px;
+  font-size: 14px;
+}
+.theme-settings-menu .menu-category .form-group {
+  text-wrap: nowrap;
+}
+.theme-settings-menu .menu-category .form-group.underlined {
+  border-bottom: 1px solid black;
+}
+.theme-settings-menu .menu-input-select {
+  flex: none;
+  width: 100px;
+}
+.theme-settings-menu .menu-title {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-settings-menu .menu-title input {
+  background: initial;
+  text-decoration: initial;
+  width: auto;
+  border: 2px solid var(--color-underline-header);
+  font-size: 1.5rem;
+  margin: 4px;
+}
+.theme-settings-menu .menu-title .menu-title-button {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  width: 113px;
+  display: flex;
+  flex-direction: column;
+}
+.theme-settings-menu .menu-title .menu-title-button div {
+  font-size: 12px;
+  font-weight: bold;
+}
+.theme-settings-menu .menu-title .menu-title-button select {
+  font-size: 12px;
+  margin: 0;
+  height: 21px;
+}
+.theme-settings-menu .edit-selections {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.theme-settings-menu .edit-selections .edit-selection {
+  position: relative;
+  width: calc(25% - 8px);
+  padding: 0 18px;
+}
+.theme-settings-menu .edit-selections .edit-selection.active {
+  background: var(--button-hover-background-color);
+}
+.theme-settings-menu .edit-selections .edit-selection .edit-selection-tools {
+  position: absolute;
+  top: 0;
+  font-size: 12px;
+  pointer-events: auto;
+}
+.theme-settings-menu .edit-selections .edit-selection .edit-selection-tools:hover {
+  filter: drop-shadow(0 0 3px black);
+}
+.theme-settings-menu .edit-selections .edit-selection .edit-selection-tools.left {
+  left: 0;
+  margin: 4px 0 0 4px;
+}
+.theme-settings-menu .edit-selections .edit-selection .edit-selection-tools.right {
+  right: 0;
+  margin: 4px 4px 0 0;
+}
+.theme-settings-menu .theme-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.theme-settings-menu .theme-section .form-group {
+  width: calc(33% - 4px);
+}
+.theme-import-dialog .menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: auto;
+}
+.theme-import-dialog .menu-container footer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pf2e-subsystem-clickable-icon {
+  cursor: pointer;
+}
+.pf2e-subsystem-clickable-icon:hover,
+.pf2e-subsystem-clickable-icon.selected {
+  filter: drop-shadow(0 0 3px red);
+}
+.pf2e-subsystem-clickable-icon.alternate:hover,
+.pf2e-subsystem-clickable-icon.alternate.selected {
+  filter: drop-shadow(0 0 3px grey);
+}

@@ -1,0 +1,31 @@
+const water = {
+  "--pf2e-subsystem-theming-application-image":
+    "../../../modules/pf2e-subsystem-theming/assets/Water.webp",
+  "--pf2e-subsystem-theming-application-image-size": "cover",
+  "--pf2e-subsystem-theming-application-image-repeat": "initial",
+  "--pf2e-subsystem-theming-application-image-position": "left",
+  "--pf2e-subsystem-theming-application-header": "transparent",
+  "--pf2e-subsystem-theming-application-header-image": "ignore",
+  "--pf2e-subsystem-theming-application-header-image-size": "cover",
+  "--pf2e-subsystem-theming-application-header-image-repeat": "initial",
+  "--pf2e-subsystem-theming-application-header-image-position": "left",
+  "--pf2e-subsystem-theming-application-secondary-image": "",
+  "--pf2e-subsystem-theming-application": "",
+  "--pf2e-subsystem-theming-primary-outline": "drop-shadow(0 0 3px #808080)",
+  "--pf2e-subsystem-theming-primary": "#1ca671",
+  "--pf2e-subsystem-theming-primary-faded": "#1ca67180",
+  "--pf2e-subsystem-theming-secondary": "#8b0d8b",
+  "--pf2e-subsystem-theming-tertiary": "#602fa1",
+  "--pf2e-subsystem-theming-primary-accent": "#0f7e2fbf",
+  "--pf2e-subsystem-theming-tertiary-accent": "#681ad1",
+  "--pf2e-subsystem-theming-primary-color": "#f7f3e8",
+  "--pf2e-subsystem-theming-text-shadow": "#000000",
+  "--pf2e-subsystem-theming-main-hover": "#FFFFFF",
+  "--pf2e-subsystem-theming-border": "#c7ffed",
+  "--pf2e-subsystem-theming-secondary-border": "#ffd700",
+  "--pf2e-subsystem-theming-application-border": "#c7ffed",
+  "--pf2e-subsystem-theming-icon": "#FFFFFF",
+  "--pf2e-subsystem-theming-secondary-icon": "#f7f3e8",
+};
+
+export default water;

@@ -1,0 +1,25 @@
+const coreDark = {
+  "--pf2e-subsystem-theming-application-image": "ignore",
+  "--pf2e-subsystem-theming-application": "#12101fe6",
+  "--pf2e-subsystem-theming-application-header": "transparent",
+  "--pf2e-subsystem-theming-application-header-image": "ignore",
+  "--pf2e-subsystem-theming-application-header-image-size": "cover",
+  "--pf2e-subsystem-theming-application-header-image-repeat": "initial",
+  "--pf2e-subsystem-theming-application-header-image-position": "left",
+  "--pf2e-subsystem-theming-primary": "#5e0000",
+  "--pf2e-subsystem-theming-primary-faded": "#5e000080",
+  "--pf2e-subsystem-theming-secondary": "#4b4b8c",
+  "--pf2e-subsystem-theming-tertiary": "#007149",
+  "--pf2e-subsystem-theming-primary-accent": "#ad0303",
+  "--pf2e-subsystem-theming-tertiary-accent": "#76963f",
+  "--pf2e-subsystem-theming-primary-color": "#FFFFFF",
+  "--pf2e-subsystem-theming-text-shadow": "#000000",
+  "--pf2e-subsystem-theming-main-hover": "#FFFFFF",
+  "--pf2e-subsystem-theming-border": "#ababab",
+  "--pf2e-subsystem-theming-secondary-border": "#ffd700",
+  "--pf2e-subsystem-theming-application-border": "#f5deb3",
+  "--pf2e-subsystem-theming-icon": "#f7f3e8",
+  "--pf2e-subsystem-theming-secondary-icon": "#FFFFFF",
+};
+
+export default coreDark;

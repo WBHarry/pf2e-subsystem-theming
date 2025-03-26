@@ -1,0 +1,78 @@
+{
+    "SubsystemTheming": {
+        "Themes": {
+            "Default": "Default",
+            "CoreLight": "Core Light",
+            "CoreDark": "Core Dark",
+            "Nebula": "Nebula",
+            "Viscera": "Viscera",
+            "Water": "Water"
+        },
+        "Menus": {
+            "Themes": {
+                "Name": "Subsystem Custom Themes",
+                "Menu": {
+                    "Name": "Subsystem Custom Themes",
+                    "Label": "Custom Themes",
+                    "Hint": "Add and edit custom visual themes"
+                },
+                "CustomThemes": {
+                    "Title": "Custom Themes",
+                    "TemplateButton": "Copy Template Theme",
+                    "BackgroundColors": "Background Properties",
+                    "HeaderColors": "Header Properties",
+                    "MainColors": "Main Colors",
+                    "IconColors": "Icon Colors",
+                    "AccentColors": "Accent Colors",
+                    "TextColors": "Text Colors",
+                    "Borders": "Border Colors",
+                    "Primary": "Primary",
+                    "Secondary": "Secondary",
+                    "Tertiary": "Tertiary",
+                    "Shadow": "Shadow",
+                    "Faded": "Faded",
+                    "Hover": "Hover",
+                    "Application": "Bestiary",
+                    "BackgroundSize": "Background Size",
+                    "BackgroundRepeat": "Background Repeat",
+                    "BackgroundPosition": "Background Position",
+                    "PreviewTheme": "Preview Theme"
+                },
+                "Import": {
+                    "Title": "Import Subsystem Theme",
+                    "FaultyImport": "JSON file is not a subsystem theme!"
+                },
+                "Miscellaneous": {
+                    "AddTheme": "Add New Theme",
+                    "DeleteTheme": "Delete Theme",
+                    "ImportTheme": "Import Theme",
+                    "ExportTheme": "Export Theme"
+                }
+            },
+            "ThemeDisplay": {
+                "JournalSettings": {
+                    "Title": "Accompanying Journal",
+                    "Enabled": "Enabled",
+                    "Name": "Name",
+                    "Image": "Image"
+                }
+            }
+        },
+        "Settings": {
+            "DefaultTheme": {
+                "Name": "Default Theme",
+                "Hint": "Select the default visual theme"
+            },
+            "Theme": {
+                "Name": "Theme",
+                "Hint": "Select the visual theme"
+            }
+        },
+        "Miscellaneous": {
+            "Name": "Name",
+            "Save": "Save",
+            "ClearFile": "Clear File",
+            "BrowseFiles": "Browse Files"
+          }
+    }
+}
