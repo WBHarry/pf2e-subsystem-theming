@@ -2,7 +2,27 @@ import { MODULE_ID } from "../data/constants";
 import ThemesMenu from "../module/themesMenu.js";
 import { defaultThemeChoices, extendedThemeChoices } from "../styles/themes/themes.js";
 
+export const currentVersion = '0.9.0';
+
 export const registerGameSettings = () => {
+    game.settings.register(MODULE_ID, "version", {
+      name: "",
+      hint: "",
+      scope: "world",
+      config: false,
+      type: String,
+      default: "",
+    });
+
+    game.settings.register(MODULE_ID, "old-migration-done", {
+      name: "",
+      hint: "",
+      scope: "world",
+      config: false,
+      type: Boolean,
+      default: "",
+    });
+
     game.settings.registerMenu(MODULE_ID, "subsystem-themes", {
         name: game.i18n.localize("SubsystemTheming.Menus.Themes.Menu.Name"),
         label: game.i18n.localize("SubsystemTheming.Menus.Themes.Menu.Label"),

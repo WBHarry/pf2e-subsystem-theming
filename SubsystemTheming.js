@@ -1,44 +1,6 @@
 const MODULE_ID = 'pf2e-subsystem-theming';
 const SOCKET_ID = `module.${MODULE_ID}`;
 
-const slugify = (name) => {
-    return name.toLowerCase().replaceAll(" ", "-").replaceAll(".", "");
-  };
-
-const saveDataToFile = (data, type, filename) => {
-    const blob = new Blob([data], { type: type });
-
-    // Create an element to trigger the download
-    let a = document.createElement("a");
-    a.href = window.URL.createObjectURL(blob);
-    a.download = filename;
-
-    // Dispatch a click event to the element
-    a.dispatchEvent(
-        new MouseEvent("click", { bubbles: true, cancelable: true, view: window }),
-    );
-    setTimeout(() => window.URL.revokeObjectURL(a.href), 100);
-};
-
-const readTextFromFile = (file) => {
-    const reader = new FileReader();
-    return new Promise((resolve, reject) => {
-        reader.onload = (ev) => {
-            resolve(reader.result);
-        };
-        reader.onerror = (ev) => {
-            reader.abort();
-            reject();
-        };
-        reader.readAsText(file);
-    });
-};
-
-const socketEvent = {
-    UpdateBestiary: "UpdateBestiary",
-    ResetBestiaryTheme: "ResetBestiaryTheme",
-  };
-
 const coreDark = {
   "--pf2e-subsystem-theming-application-image": "ignore",
   "--pf2e-subsystem-theming-application": "#12101fe6",
@@ -97,7 +59,7 @@ const nebula = {
   "--pf2e-subsystem-theming-application-header-image-size": "cover",
   "--pf2e-subsystem-theming-application-header-image-repeat": "initial",
   "--pf2e-subsystem-theming-application-header-image-position": "left",
-  "--pf2e-subsystem-theming-application-image-size": "cover",
+  "--pf2e-subsystem-theming-application-image-size": "contain",
   "--pf2e-subsystem-theming-application-image-repeat": "round",
   "--pf2e-subsystem-theming-application-image-position": "left",
   "--pf2e-subsystem-theming-application-secondary-image":
@@ -248,6 +210,59 @@ const extendedThemeChoices = () => {
   };
 };
 
+const slugify = (name) => {
+    return name.toLowerCase().replaceAll(" ", "-").replaceAll(".", "");
+};
+
+const saveDataToFile = (data, type, filename) => {
+    const blob = new Blob([data], { type: type });
+
+    // Create an element to trigger the download
+    let a = document.createElement("a");
+    a.href = window.URL.createObjectURL(blob);
+    a.download = filename;
+
+    // Dispatch a click event to the element
+    a.dispatchEvent(
+        new MouseEvent("click", { bubbles: true, cancelable: true, view: window }),
+    );
+    setTimeout(() => window.URL.revokeObjectURL(a.href), 100);
+};
+
+const readTextFromFile = (file) => {
+    const reader = new FileReader();
+    return new Promise((resolve, reject) => {
+        reader.onload = (ev) => {
+            resolve(reader.result);
+        };
+        reader.onerror = (ev) => {
+            reader.abort();
+            reject();
+        };
+        reader.readAsText(file);
+    });
+};
+
+const parseOldVariableNaming = (data) => {
+    return Object.keys(data).reduce((acc, key) => {
+        const correctedKey = key.replace('--pf2e-bestiary-tracking', '--pf2e-subsystem-theming');
+        acc[correctedKey] = data[key];
+
+        return acc;
+    }, {});
+};
+
+function handleSocketEvent({ action = null, data = {} } = {}) {
+    switch (action) {
+      case socketEvent.ResetTheme:
+        Hooks.callAll(socketEvent.ResetTheme, {});
+    }
+  }
+  
+  const socketEvent = {
+    ResetTheme: "ResetTheme",
+  };
+
 const { HandlebarsApplicationMixin: HandlebarsApplicationMixin$1, ApplicationV2: ApplicationV2$1 } = foundry.applications.api;
 
 class ImportDialog extends HandlebarsApplicationMixin$1(
@@ -363,8 +378,6 @@ class ImportDialog extends HandlebarsApplicationMixin$1(
   //   }
 }
 
-// import ImportDialog from "./importDialog";
-
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
 class ThemesMenu extends HandlebarsApplicationMixin(
@@ -399,8 +412,8 @@ class ThemesMenu extends HandlebarsApplicationMixin(
       };
       return acc;
     }, {});
+
     this.selectedTheme = "";
-    this.previewApp = false;
   }
 
   get title() {
@@ -420,7 +433,6 @@ class ThemesMenu extends HandlebarsApplicationMixin(
       selectTheme: this.selectTheme,
       filePicker: this.filePicker,
       clearBackgroundImage: this.clearBackgroundImage,
-      togglePreview: this.togglePreview,
       save: this.save,
     },
     form: { handler: this.updateData, submitOnChange: true },
@@ -487,6 +499,7 @@ class ThemesMenu extends HandlebarsApplicationMixin(
 
   async _prepareContext(_options) {
     const context = await super._prepareContext(_options);
+
     context.baseThemes = Object.keys(bestiaryThemes).map((x) => ({
       name: x,
       value: x,
@@ -526,11 +539,11 @@ class ThemesMenu extends HandlebarsApplicationMixin(
       this.customThemes,
       customThemes,
     );
-    if (this.previewApp) {
+
+    if(this.selectedTheme){
       ThemesMenu.updateTheme(
         this.customThemes[this.selectedTheme].props,
       );
-      Hooks.callAll(socketEvent.UpdateBestiary, {});
     }
 
     this.render();
@@ -601,6 +614,11 @@ class ThemesMenu extends HandlebarsApplicationMixin(
       },
     };
     this.selectedTheme = id;
+
+    ThemesMenu.updateTheme(
+      this.customThemes[this.selectedTheme].props,
+    );
+
     this.render();
   }
 
@@ -656,13 +674,17 @@ class ThemesMenu extends HandlebarsApplicationMixin(
       }
 
       const id = foundry.utils.randomID();
-      this.customThemes[id] = data;
+      this.customThemes[id] = { ...data, props: parseOldVariableNaming(data.props) };
       this.render();
     });
   }
 
   static selectTheme(_, button) {
     this.selectedTheme = button.dataset.theme;
+    ThemesMenu.updateTheme(
+      this.customThemes[this.selectedTheme].props,
+    );
+    
     this.render();
   }
 
@@ -702,21 +724,6 @@ class ThemesMenu extends HandlebarsApplicationMixin(
       "ignore";
     ThemesMenu.updateTheme(this.customThemes[this.selectedTheme].props);
     this.render();
-  }
-
-  static async togglePreview() {
-    // if (!this.previewApp) {
-    //   ThemesMenu.updateTheme(
-    //     this.customThemes[this.selectedTheme].props,
-    //   );
-    //   this.previewApp = new PF2EBestiary();
-    //   await this.previewApp.render(true);
-    // } else {
-    //   this.previewApp.close();
-    //   this.previewApp = null;
-    // }
-
-    // this.render();
   }
 
   static async save(options) {
@@ -771,21 +778,37 @@ class ThemesMenu extends HandlebarsApplicationMixin(
 
   close = async (options) => {
     await game.socket.emit(SOCKET_ID, {
-      action: socketEvent.ResetBestiaryTheme,
+      action: socketEvent.ResetTheme,
       data: {},
     });
 
-    Hooks.callAll(socketEvent.ResetBestiaryTheme, {});
-
-    if (this.previewApp) {
-      this.previewApp.close();
-    }
+    Hooks.callAll(socketEvent.ResetTheme, {});
 
     return super.close(options);
   };
 }
 
+const currentVersion = '0.9.0';
+
 const registerGameSettings = () => {
+    game.settings.register(MODULE_ID, "version", {
+      name: "",
+      hint: "",
+      scope: "world",
+      config: false,
+      type: String,
+      default: "",
+    });
+
+    game.settings.register(MODULE_ID, "old-migration-done", {
+      name: "",
+      hint: "",
+      scope: "world",
+      config: false,
+      type: Boolean,
+      default: "",
+    });
+
     game.settings.registerMenu(MODULE_ID, "subsystem-themes", {
         name: game.i18n.localize("SubsystemTheming.Menus.Themes.Menu.Name"),
         label: game.i18n.localize("SubsystemTheming.Menus.Themes.Menu.Label"),
@@ -853,8 +876,48 @@ const setupTheme = (theme) => {
   }
 };
 
+const handleDataMigration = async () => {
+    if (!game.user.isGM) return;
+  
+    var version = game.settings.get(MODULE_ID, "version");
+    if (!version) {
+      version = currentVersion;
+      await game.settings.set(MODULE_ID, "version", version);
+    }
+
+    const oldMigrationDone = game.settings.get(MODULE_ID, "old-migration-done");
+    if (!oldMigrationDone) {
+        if(game.modules.get('pf2e-bestiary-tracking')?.active){
+            const oldBestiaryCustomThemes = game.settings.get('pf2e-bestiary-tracking', 'custom-themes');
+            const newSubsystemCustomThemes = game.settings.get(MODULE_ID, 'custom-themes');
+            await game.settings.set(MODULE_ID, 'custom-themes', Object.keys(oldBestiaryCustomThemes).reduce((acc, key) => {
+              acc[key] = { ...oldBestiaryCustomThemes[key], props: parseOldVariableNaming(oldBestiaryCustomThemes[key].props) };
+        
+              return acc;
+            }, newSubsystemCustomThemes));
+          
+    
+            const oldBestiaryTheme = game.settings.get('pf2e-bestiary-tracking', 'bestiary-theme');
+            const newSubsystemTheme = game.settings.get(MODULE_ID, 'theme');
+            await game.settings.set(MODULE_ID, 'theme', oldBestiaryTheme ? oldBestiaryTheme : newSubsystemTheme);
+        
+            const oldBestiaryDefaultTheme = game.settings.get('pf2e-bestiary-tracking', 'bestiary-default-theme');
+            const newSubsystemDefaultTheme = game.settings.get(MODULE_ID, 'default-theme');
+            await game.settings.set(MODULE_ID, 'default-theme', oldBestiaryDefaultTheme ? oldBestiaryDefaultTheme : newSubsystemDefaultTheme);
+
+            const currentTheme = game.settings.get(MODULE_ID, 'theme');
+            const defaultTheme = game.settings.get(MODULE_ID, 'default-theme');
+            const updateTheme = currentTheme === 'default' ? defaultTheme : currentTheme;
+            setupTheme(extendedThemes()[updateTheme].props);
+
+            await game.settings.set(MODULE_ID, "old-migration-done", true);
+        }
+    }
+};
+
 Hooks.once('init', () => {
     registerGameSettings();
+    game.socket.on(SOCKET_ID, handleSocketEvent);
 });
 
 Hooks.once("setup", () => {
@@ -876,5 +939,25 @@ Hooks.once("setup", () => {
         : selectedTheme;
 
     setupTheme(extendedThemes()[theme].props);
+});
+
+Hooks.once("ready", async () => {
+  handleDataMigration();
+});
+
+
+Hooks.on(socketEvent.ResetTheme, () => {
+  const selectedTheme = game.settings.get(
+    MODULE_ID,
+    "theme",
+  );
+  const theme =
+    selectedTheme === "default"
+      ? game.settings.get(MODULE_ID, "default-theme")
+      : selectedTheme;
+  const resetTheme = extendedThemes()[theme];
+  setupTheme(
+    resetTheme ? resetTheme.props : extendedThemes()["coreLight"].props,
+  );
 });
 //# sourceMappingURL=SubsystemTheming.js.map

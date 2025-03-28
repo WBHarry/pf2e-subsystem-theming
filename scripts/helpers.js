@@ -1,6 +1,17 @@
 export const slugify = (name) => {
     return name.toLowerCase().replaceAll(" ", "-").replaceAll(".", "");
-  };
+};
+
+export const versionCompare = (current, target) => {
+    const currentSplit = current.split(".").map((x) => Number.parseInt(x));
+    const targetSplit = target.split(".").map((x) => Number.parseInt(x));
+    for (var i = 0; i < currentSplit.length; i++) {
+        if (currentSplit[i] < targetSplit[i]) return true;
+        if (currentSplit[i] > targetSplit[i]) return false;
+    }
+
+    return false;
+};
 
 export const saveDataToFile = (data, type, filename) => {
     const blob = new Blob([data], { type: type });
@@ -29,4 +40,13 @@ export const readTextFromFile = (file) => {
         };
         reader.readAsText(file);
     });
+};
+
+export const parseOldVariableNaming = (data) => {
+    return Object.keys(data).reduce((acc, key) => {
+        const correctedKey = key.replace('--pf2e-bestiary-tracking', '--pf2e-subsystem-theming');
+        acc[correctedKey] = data[key];
+
+        return acc;
+    }, {});
 };

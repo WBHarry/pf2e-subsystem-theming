@@ -1,5 +1,5 @@
 import { MODULE_ID, SOCKET_ID } from "../data/constants";
-import { saveDataToFile, slugify } from "../scripts/helpers";
+import { parseOldVariableNaming, saveDataToFile, slugify } from "../scripts/helpers";
 import { setupTheme } from "../scripts/setup";
 import { socketEvent } from "../scripts/socket";
 import {
@@ -8,7 +8,6 @@ import {
   extendedThemes
 } from "../styles/themes/themes";
 import ImportDialog from "./importDialog";
-// import ImportDialog from "./importDialog";
 
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
@@ -44,8 +43,8 @@ export default class ThemesMenu extends HandlebarsApplicationMixin(
       };
       return acc;
     }, {});
+
     this.selectedTheme = "";
-    this.previewApp = false;
   }
 
   get title() {
@@ -65,7 +64,6 @@ export default class ThemesMenu extends HandlebarsApplicationMixin(
       selectTheme: this.selectTheme,
       filePicker: this.filePicker,
       clearBackgroundImage: this.clearBackgroundImage,
-      togglePreview: this.togglePreview,
       save: this.save,
     },
     form: { handler: this.updateData, submitOnChange: true },
@@ -132,6 +130,7 @@ export default class ThemesMenu extends HandlebarsApplicationMixin(
 
   async _prepareContext(_options) {
     const context = await super._prepareContext(_options);
+
     context.baseThemes = Object.keys(bestiaryThemes).map((x) => ({
       name: x,
       value: x,
@@ -171,11 +170,11 @@ export default class ThemesMenu extends HandlebarsApplicationMixin(
       this.customThemes,
       customThemes,
     );
-    if (this.previewApp) {
+
+    if(this.selectedTheme){
       ThemesMenu.updateTheme(
         this.customThemes[this.selectedTheme].props,
       );
-      Hooks.callAll(socketEvent.UpdateBestiary, {});
     }
 
     this.render();
@@ -246,6 +245,11 @@ export default class ThemesMenu extends HandlebarsApplicationMixin(
       },
     };
     this.selectedTheme = id;
+
+    ThemesMenu.updateTheme(
+      this.customThemes[this.selectedTheme].props,
+    );
+
     this.render();
   }
 
@@ -301,13 +305,17 @@ export default class ThemesMenu extends HandlebarsApplicationMixin(
       }
 
       const id = foundry.utils.randomID();
-      this.customThemes[id] = data;
+      this.customThemes[id] = { ...data, props: parseOldVariableNaming(data.props) };
       this.render();
     });
   }
 
   static selectTheme(_, button) {
     this.selectedTheme = button.dataset.theme;
+    ThemesMenu.updateTheme(
+      this.customThemes[this.selectedTheme].props,
+    );
+    
     this.render();
   }
 
@@ -347,21 +355,6 @@ export default class ThemesMenu extends HandlebarsApplicationMixin(
       "ignore";
     ThemesMenu.updateTheme(this.customThemes[this.selectedTheme].props);
     this.render();
-  }
-
-  static async togglePreview() {
-    // if (!this.previewApp) {
-    //   ThemesMenu.updateTheme(
-    //     this.customThemes[this.selectedTheme].props,
-    //   );
-    //   this.previewApp = new PF2EBestiary();
-    //   await this.previewApp.render(true);
-    // } else {
-    //   this.previewApp.close();
-    //   this.previewApp = null;
-    // }
-
-    // this.render();
   }
 
   static async save(options) {
@@ -416,15 +409,11 @@ export default class ThemesMenu extends HandlebarsApplicationMixin(
 
   close = async (options) => {
     await game.socket.emit(SOCKET_ID, {
-      action: socketEvent.ResetBestiaryTheme,
+      action: socketEvent.ResetTheme,
       data: {},
     });
 
-    Hooks.callAll(socketEvent.ResetBestiaryTheme, {});
-
-    if (this.previewApp) {
-      this.previewApp.close();
-    }
+    Hooks.callAll(socketEvent.ResetTheme, {});
 
     return super.close(options);
   };

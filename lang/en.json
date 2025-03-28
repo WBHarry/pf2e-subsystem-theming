@@ -35,8 +35,7 @@
                     "Application": "Bestiary",
                     "BackgroundSize": "Background Size",
                     "BackgroundRepeat": "Background Repeat",
-                    "BackgroundPosition": "Background Position",
-                    "PreviewTheme": "Preview Theme"
+                    "BackgroundPosition": "Background Position"
                 },
                 "Import": {
                     "Title": "Import Subsystem Theme",

@@ -6,7 +6,7 @@ const nebula = {
   "--pf2e-subsystem-theming-application-header-image-size": "cover",
   "--pf2e-subsystem-theming-application-header-image-repeat": "initial",
   "--pf2e-subsystem-theming-application-header-image-position": "left",
-  "--pf2e-subsystem-theming-application-image-size": "cover",
+  "--pf2e-subsystem-theming-application-image-size": "contain",
   "--pf2e-subsystem-theming-application-image-repeat": "round",
   "--pf2e-subsystem-theming-application-image-position": "left",
   "--pf2e-subsystem-theming-application-secondary-image":
