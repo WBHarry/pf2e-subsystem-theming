@@ -13,6 +13,7 @@ const coreLight = {
   "--pf2e-subsystem-theming-secondary": "#62b356",
   "--pf2e-subsystem-theming-tertiary": "#62acce",
   "--pf2e-subsystem-theming-primary-accent": "#fff1db",
+  "--pf2e-subsystem-theming-secondary-accent": "#53e03e",
   "--pf2e-subsystem-theming-tertiary-accent": "#9de0ff",
   "--pf2e-subsystem-theming-primary-color": "#000000",
   "--pf2e-subsystem-theming-text-shadow": "none",

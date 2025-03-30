@@ -17,6 +17,7 @@ const viscera = {
   "--pf2e-subsystem-theming-secondary": "#483c70",
   "--pf2e-subsystem-theming-tertiary": "#ed143d",
   "--pf2e-subsystem-theming-primary-accent": "#9f2828",
+  "--pf2e-subsystem-theming-secondary-accent": "#593db6",
   "--pf2e-subsystem-theming-tertiary-accent": "#c12c2c",
   "--pf2e-subsystem-theming-primary-color": "#FFFFFF",
   "--pf2e-subsystem-theming-text-shadow": "#000000",

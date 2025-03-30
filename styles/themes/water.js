@@ -17,6 +17,7 @@ const water = {
   "--pf2e-subsystem-theming-secondary": "#8b0d8b",
   "--pf2e-subsystem-theming-tertiary": "#602fa1",
   "--pf2e-subsystem-theming-primary-accent": "#0f7e2fbf",
+  "--pf2e-subsystem-theming-secondary-accent": "#c214c2",
   "--pf2e-subsystem-theming-tertiary-accent": "#681ad1",
   "--pf2e-subsystem-theming-primary-color": "#f7f3e8",
   "--pf2e-subsystem-theming-text-shadow": "#000000",

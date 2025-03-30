@@ -18,6 +18,7 @@ const nebula = {
   "--pf2e-subsystem-theming-secondary": "#cd7e23",
   "--pf2e-subsystem-theming-tertiary": "#7476a6",
   "--pf2e-subsystem-theming-primary-accent": "#0888b5",
+  "--pf2e-subsystem-theming-secondary-accent": "#b181d1",
   "--pf2e-subsystem-theming-tertiary-accent": "#888bc0",
   "--pf2e-subsystem-theming-primary-color": "#f7f3e8",
   "--pf2e-subsystem-theming-text-shadow": "#000000",

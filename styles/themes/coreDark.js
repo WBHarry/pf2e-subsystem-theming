@@ -11,6 +11,7 @@ const coreDark = {
   "--pf2e-subsystem-theming-secondary": "#4b4b8c",
   "--pf2e-subsystem-theming-tertiary": "#007149",
   "--pf2e-subsystem-theming-primary-accent": "#ad0303",
+  "--pf2e-subsystem-theming-secondary-accent": "#5151e4",
   "--pf2e-subsystem-theming-tertiary-accent": "#76963f",
   "--pf2e-subsystem-theming-primary-color": "#FFFFFF",
   "--pf2e-subsystem-theming-text-shadow": "#000000",

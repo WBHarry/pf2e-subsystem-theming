@@ -14,19 +14,6 @@
     "verified": "12.331",
     "maximum": "12"
   },
-  "relationships": {
-    "systems": [
-      {
-        "id": "pf2e",
-        "type": "system",
-        "manifest": "https://raw.githubusercontent.com/foundryvtt/pf2e/master/system.json",
-        "compatibility": {
-          "minimum": "6.2.0",
-          "verified": "6.11.0"
-        }
-      }
-    ]
-  },
   "esmodules": [
     "SubsystemTheming.js"
   ],
