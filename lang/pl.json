@@ -1,0 +1,77 @@
+{
+    "SubsystemTheming": {
+        "Themes": {
+            "Default": "Domyślne",
+            "CoreLight": "Podstawowy Jasny",
+            "CoreDark": "Podstawowy Ciemny",
+            "Nebula": "Mgławica",
+            "Viscera": "Wiskoza",
+            "Water": "Woda"
+        },
+        "Menus": {
+            "Themes": {
+                "Name": "Niestandardowe motywy podsystemu",
+                "Menu": {
+                    "Name": "Niestandardowe motywy podsystemu",
+                    "Label": "Niestandardowe motywy",
+                    "Hint": "Dodawanie i edytowanie niestandardowych motywów wizualnych"
+                },
+                "CustomThemes": {
+                    "Title": "Niestandardowe motywy",
+                    "TemplateButton": "Kopiuj szablon motywu",
+                    "BackgroundColors": "Właściwości tła",
+                    "HeaderColors": "Właściwości nagłówka",
+                    "MainColors": "Główne kolory",
+                    "IconColors": "Kolory ikon",
+                    "AccentColors": "Kolory akcentu",
+                    "TextColors": "Kolory tekstu",
+                    "Borders": "Kolory obramowania",
+                    "Primary": "Główny",
+                    "Secondary": "Drugorzędny",
+                    "Tertiary": "Trzeciorzędowy",
+                    "Shadow": "Cień",
+                    "Faded": "Blaknięcie",
+                    "Hover": "Najechanie",
+                    "Application": "Bestiariusz",
+                    "BackgroundSize": "Rozmiar tła",
+                    "BackgroundRepeat": "Powtarzanie tła",
+                    "BackgroundPosition": "Pozycja tła"
+                },
+                "Import": {
+                    "Title": "Importuj motyw podsystemu",
+                    "FaultyImport": "Plik JSON nie jest motywem podsystemu!"
+                },
+                "Miscellaneous": {
+                    "AddTheme": "Dodaj nowy motyw",
+                    "DeleteTheme": "Usuń motyw",
+                    "ImportTheme": "Importuj motyw",
+                    "ExportTheme": "Eksportuj motyw"
+                }
+            },
+            "ThemeDisplay": {
+                "JournalSettings": {
+                    "Title": "Dziennik uzupełniający",
+                    "Enabled": "Włączone",
+                    "Name": "Nazwa",
+                    "Image": "Obraz"
+                }
+            }
+        },
+        "Settings": {
+            "DefaultTheme": {
+                "Name": "Domyślny motyw",
+                "Hint": "Wybierz domyślny motyw wizualny"
+            },
+            "Theme": {
+                "Name": "Motyw",
+                "Hint": "Wybierz motyw wizualny"
+            }
+        },
+        "Miscellaneous": {
+            "Name": "Nazwa",
+            "Save": "Zapisz",
+            "ClearFile": "Wyczyść plik",
+            "BrowseFiles": "Przeglądaj pliki"
+          }
+    }
+}
