@@ -44,7 +44,7 @@ const coreLight = {
   "--pf2e-subsystem-theming-secondary-accent": "#53e03e",
   "--pf2e-subsystem-theming-tertiary-accent": "#9de0ff",
   "--pf2e-subsystem-theming-primary-color": "#000000",
-  "--pf2e-subsystem-theming-text-shadow": "none",
+  "--pf2e-subsystem-theming-text-shadow": "#FFFFFF",
   "--pf2e-subsystem-theming-main-hover": "#1c8efe",
   "--pf2e-subsystem-theming-border": "#000000",
   "--pf2e-subsystem-theming-secondary-border": "#82acff",
@@ -793,7 +793,7 @@ class ThemesMenu extends HandlebarsApplicationMixin(
   };
 }
 
-const currentVersion = '0.9.0';
+const currentVersion = '0.9.1';
 
 const registerGameSettings = () => {
     game.settings.register(MODULE_ID, "version", {

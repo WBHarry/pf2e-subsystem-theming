@@ -1,7 +1,8 @@
 {
     "dependencies": {
       "gulp": "^5.0.0",
-      "gulp-less": "^5.0.0"
+      "gulp-less": "^5.0.0",
+      "rollup": "^4.40.0"
     },
     "devDependencies": {
       "@rollup/plugin-node-resolve": "^15.2.3",
