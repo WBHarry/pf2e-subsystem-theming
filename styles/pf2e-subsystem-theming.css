@@ -1,7 +1,3 @@
-.theme-dark:not([data-dorako-ui-scope]) .theme-settings-menu .tagify {
-  border-color: inherit;
-  background: inherit;
-}
 .theme-dark:not([data-dorako-ui-scope]) .theme-settings-menu .menu-category legend h4 {
   color: var(--color-light-2);
 }
@@ -48,10 +44,6 @@
 }
 .theme-dark .theme-settings-menu .menu-category .form-group.underlined {
   border-bottom: 1px solid #ababab;
-}
-:not([data-dorako-ui-scope]) .tagify {
-  border-color: black;
-  background: #cfcfcf;
 }
 .theme-settings-menu .settings-hint {
   font-style: italic;
