@@ -793,7 +793,7 @@ class ThemesMenu extends HandlebarsApplicationMixin(
   };
 }
 
-const currentVersion = '0.9.1';
+const currentVersion = '0.9.3';
 
 const registerGameSettings = () => {
     game.settings.register(MODULE_ID, "version", {
