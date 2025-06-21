@@ -2,7 +2,7 @@ import { MODULE_ID } from "../data/constants";
 import ThemesMenu from "../module/themesMenu.js";
 import { defaultThemeChoices, extendedThemeChoices } from "../styles/themes/themes.js";
 
-export const currentVersion = '0.9.1';
+export const currentVersion = '0.9.4';
 
 export const registerGameSettings = () => {
     game.settings.register(MODULE_ID, "version", {
