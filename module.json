@@ -2,42 +2,42 @@
   "id": "pf2e-subsystem-theming",
   "title": "PF2e Subsystem Theming",
   "description": "A module for shared visual themes between modules",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "authors": [
-    {
-      "name": "HarryBoy",
-      "flags": {}
-    }
+      {
+          "name": "HarryBoy",
+          "flags": {}
+      }
   ],
   "compatibility": {
-    "minimum": "13",
-    "verified": "13.345",
-    "maximum": "13"
+      "minimum": "13",
+      "verified": "14.360",
+      "maximum": "14"
   },
   "esmodules": [
-    "SubsystemTheming.js"
+      "SubsystemTheming.js"
   ],
   "styles": [
-    {
-      "src": "styles/pf2e-subsystem-theming.css"
-    }
+      {
+          "src": "styles/pf2e-subsystem-theming.css"
+      }
   ],
   "socket": true,
   "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json",
-      "flags": {}
-    },
-    {
-      "lang": "pl",
-      "name": "Polski",
-      "path": "lang/pl.json",
-      "flags": {}
-    }
+      {
+          "lang": "en",
+          "name": "English",
+          "path": "lang/en.json",
+          "flags": {}
+      },
+      {
+          "lang": "pl",
+          "name": "Polski",
+          "path": "lang/pl.json",
+          "flags": {}
+      }
   ],
   "url": "https://github.com/WBHarry/pf2e-subsystem-theming",
   "manifest": "https://github.com/WBHarry/pf2e-subsystem-theming/releases/latest/download/module.json",
-  "download": "https://github.com/WBHarry/pf2e-subsystem-theming/releases/download/0.9.1/module.zip"
+  "download": "https://github.com/WBHarry/pf2e-subsystem-theming/releases/download/0.9.5/module.zip"
 }
